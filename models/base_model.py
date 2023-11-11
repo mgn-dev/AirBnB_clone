@@ -29,7 +29,7 @@ class BaseModel:
     def to_dict(self):
         """Defines a dictionary representation of this object.
 
-        Returns: 
+        Returns:
             a dictionary containing all
             keys/values of __dict__ of the instance.
         """
