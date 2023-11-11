@@ -17,7 +17,16 @@ class TestBaseModel(unittest.TestCase):
             to_dict() is correct.
     """
 
-    def test_BaseModel_init(self):
+    def setUp(self):
+        self.base_model_1 = BaseModel()
+
+    def test_save(self):
+        pass
+
+    def test_to_dict(self):
+        pass
+
+    def test__str__(self):
         pass
 
 
