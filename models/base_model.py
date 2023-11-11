@@ -12,11 +12,25 @@ class BaseModel:
         created_at (datetime): current datetime when an instance is created.
         updated_at (datetime): current datetime when an instance is created
             and it will be updated every time you change your object.
+
+    Args
+        *args: Variable length argument list.
+        **kwargs: Arbitrary keyword arguments.
     """
-    def __init__(self):
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = self.created_at
+
+    def __init__(self, *args, **kwargs):
+        if not kwargs:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = self.created_at
+        else:
+            for key, val in kwargs.items():
+                if key == '__class__':
+                    continue
+                elif key in ['created_at', 'updated_at']:
+                    setattr(self, key, datetime.fromisoformat(val))
+                else:
+                    setattr(self, key, val)
 
     def __str__(self):
         """Overwrites the string representation of this method's class."""
