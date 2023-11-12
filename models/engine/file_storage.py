@@ -31,15 +31,13 @@ class FileStorage:
 
     def save(self):
         """Serializes __objects to the JSON file."""
-        if self.__objects:
-            with open(self.__file_path, mode='w') as store_file:
-                json.dump(self.__objects, store_file)
+        with open(self.__file_path, mode='w') as store_file:
+            json.dump(self.__objects, store_file)
 
     def reload(self):
         """Deserializes the JSON file to __objects."""
         try:
             with open(self.__file_path, mode='r') as retrieval_file:
-                if os.path.getsize(self.__file_path) > 0:
-                    self.__objects = json.load(retrieval_file)
+                self.__objects = json.load(retrieval_file)
         except FileNotFoundError:
             pass
