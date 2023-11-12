@@ -90,7 +90,7 @@ class HBNBCommand(cmd.Cmd):
 
         print("** no instance found **")
 
-    def do_all():
+    def do_all(self, line):
         """Prints all string representation of all instances based
             or not on the class name.
 
