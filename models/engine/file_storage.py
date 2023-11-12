@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This module implements FileStorage class."""
 import json
+import os
 
 
 class FileStorage:
@@ -37,6 +38,7 @@ class FileStorage:
         """Deserializes the JSON file to __objects."""
         try:
             with open(self.__file_path, mode='r') as retrieval_file:
-                self.__objects = json.load(retrieval_file)
+                if os.path.getsize(self.__file_path) > 0:
+                    self.__objects = json.load(retrieval_file)
         except FileNotFoundError:
             pass
