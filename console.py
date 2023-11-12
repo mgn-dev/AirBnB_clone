@@ -4,7 +4,7 @@ import cmd
 
 
 class HBNBCommand(cmd.Cmd):
-    prompt = "(hbnb) "
+    prompt = "(hbnb)"
 
     def do_EOF(self, line):
         """EOF command to exit the program."""
@@ -13,9 +13,6 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, line):
         """Quit command to exit the program."""
         return True
-
-    def default(self, line):
-        print("unknown command")
 
 
 if __name__ == "__main__":
