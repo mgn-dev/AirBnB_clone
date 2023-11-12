@@ -33,7 +33,7 @@ class FileStorage:
         """Serializes __objects to the JSON file."""
         new_dict = {}
         for key, val in self.__objects.items():
-            new_dict[key] = val.to_dict().copy()
+            new_dict[key] = val.to_dict()
 
         with open(self.__file_path, mode='w') as store_file:
             json.dump(new_dict, store_file)
@@ -41,7 +41,7 @@ class FileStorage:
     def reload(self):
         """Deserializes the JSON file to __objects."""
         from models.base_model import BaseModel
-        
+
         try:
             with open(self.__file_path, mode='r') as retrieval_file:
                 new_dict = json.load(retrieval_file)
