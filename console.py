@@ -83,7 +83,7 @@ class HBNBCommand(cmd.Cmd):
         object_store = models.storage.all()
 
         for key, val in object_store.items():
-            if (val.id == line_arr[1]):
+            if (key.find(line_arr[0]) != -1 and val.id == line_arr[1]):
                 object_store.pop(key)
                 models.storage.save()
                 return
@@ -143,7 +143,7 @@ class HBNBCommand(cmd.Cmd):
         object_store = models.storage.all()
 
         for key, val in object_store.items():
-            if (val.id == line_arr[1]):
+            if (key.find(line_arr[0]) != -1 and val.id == line_arr[1]):
                 break
         else:
             print("** no instance found **")
@@ -164,7 +164,7 @@ class HBNBCommand(cmd.Cmd):
         conv_attr = self.conv(attr_val)
 
         for key, val in object_store.items():
-            if (val.id == line_arr[1]):
+            if (key.find(line_arr[0]) != -1 and val.id == line_arr[1]):
                 setattr(val, line_arr[2], conv_attr)
                 models.storage.save()
                 break
