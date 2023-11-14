@@ -39,7 +39,7 @@ class FileStorage:
 
     def reload(self):
         """Deserializes the JSON file to __objects."""
-        
+
         from models.base_model import BaseModel
         from models.amenity import Amenity
         from models.city import City
@@ -50,11 +50,7 @@ class FileStorage:
 
         try:
             with open(self.__file_path, mode='r') as retrieval_file:
-                if retrieval_file.readable() and retrieval_file.read(1):
-                    retrieval_file.seek(0)
-                    new_dict = json.load(retrieval_file)
-                else:
-                    raise FileNotFoundError
+                new_dict = json.load(retrieval_file)
 
                 for key, val in new_dict.items():
                     class_name = val.get('__class__')
