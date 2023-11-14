@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """This module implements FileStorage class."""
 import json
-import os
 
 
 class FileStorage:
@@ -51,7 +50,11 @@ class FileStorage:
 
         try:
             with open(self.__file_path, mode='r') as retrieval_file:
-                new_dict = json.load(retrieval_file)
+                if retrieval_file.readable() and retrieval_file.read(1):
+                    retrieval_file.seek(0)
+                    new_dict = json.load(retrieval_file)
+                else:
+                    raise FileNotFoundError
 
                 for key, val in new_dict.items():
                     class_name = val.get('__class__')
