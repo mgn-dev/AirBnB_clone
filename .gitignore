@@ -1,1 +1,4 @@
 *.pyc
+file.json
+test_script.py
+.gitignore
