@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""Implements Unittests for BaseModel class."""
+"""Implements Unittests for Place class."""
 import unittest
-from ...models.base_model import BaseModel
+from ...models.place import Place
 
 
-class TestBaseModel(unittest.TestCase):
-    """Defines Unittests for BaseModel class.
+class TestPlace(unittest.TestCase):
+    """Defines Unittests for Place class.
 
     Todo:
         * Test if instance attributes are initialized to correct values.
@@ -18,16 +18,7 @@ class TestBaseModel(unittest.TestCase):
     """
 
     def setUp(self):
-        self.base_model_1 = BaseModel()
-
-    def test_save(self):
-        pass
-
-    def test_to_dict(self):
-        pass
-
-    def test__str__(self):
-        pass
+        self.Place_1 = Place()
 
 
 if __name__ == '__main__':
