@@ -179,6 +179,16 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, line):
         """Quit command to exit the program.\n"""
         return True
+    
+    #************ new code
+        
+    def parseline(self, line):
+        # print(f'parseline {line}')
+
+        ret = cmd.Cmd.parseline(self, line)
+        return ret
+    
+    #************ new code
 
 
 if __name__ == "__main__":
